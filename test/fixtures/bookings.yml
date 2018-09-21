@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  workshop: one
+  title: MyString
+  date: MyString
+  price: 1
+  total: 1
+
+two:
+  user: two
+  workshop: two
+  title: MyString
+  date: MyString
+  price: 1
+  total: 1

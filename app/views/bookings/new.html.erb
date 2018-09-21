@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<%= form_with model: [@workshop, @booking] do |b| %>
+	<%= b.label :No_pax %> :
+	<%= b.number_field :total %> <br/>
+
+	<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Title:</strong>
@@ -44,6 +48,6 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_workshop_path(@workshop) %> |
-<%= link_to 'Back', workshops_path %> |
-<%= link_to 'Book Slot', new_workshop_booking_path(@workshop.id) %>
+	<%= b.submit %>
+
+	<% end %>
