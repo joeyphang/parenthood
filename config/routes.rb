@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :workshops
 	get '/register' => 'users#new'
 	post '/users' => 'users#create'
 
