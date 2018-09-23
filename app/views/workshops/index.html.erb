@@ -5,7 +5,7 @@
 
 <table>
   <thead>
-    <tr>
+    <tr class="">
       <th>Title</th>
       <th>Description</th>
       <th>Date</th>
@@ -26,7 +26,8 @@
 
   <tbody>
     <% @workshops.order(:title).each_with_index do |workshop, index| %>
-      <tr class="">
+
+      <tr class=" ">
         <td><%= workshop.title %></td>
         <td><%= workshop.description %></td>
         <td><%= workshop.date %></td>
@@ -40,18 +41,16 @@
         <% else %>
           <img class="img-fluid" style="width: auto; height: auto;" src= "https://www.nato-pa.int/sites/default/files/default_images/default-image.jpg"/>
         <% end %>
-
         </td>
         <td><%= link_to 'Show', workshop %></td>
         <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
-        <!-- <a class="destroy">Delete</a> -->
         <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: "destroy" %></td>
       </tr>
 
   </tbody>
-</table>
 
 <% end %>
+</table>
 
 <br>
 

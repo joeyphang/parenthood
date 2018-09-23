@@ -1,4 +1,5 @@
 class WorkshopsController < ApplicationController
+  # skip_before_action :verify_authenticity_token
   before_action :set_workshop, only: [:show, :edit, :update, :destroy]
   before_action :check_create_rights, only: [:new, :create]
 
@@ -56,7 +57,6 @@ class WorkshopsController < ApplicationController
   # DELETE /workshops/1
   # DELETE /workshops/1.json
   def destroy
-    workshop = Workshop.find(params[:id])
     @workshop.destroy
     respond_to do |format|
       format.js
