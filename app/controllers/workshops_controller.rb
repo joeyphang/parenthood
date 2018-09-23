@@ -66,18 +66,18 @@ class WorkshopsController < ApplicationController
   end
 
   def search
-    @listing = Listing.all
-        @listing = Listing.page(params[:page]).per(4)
-        @listing = @listing.price_range(params[:from],params[:to]) if params[:from].present? || params[:to].present?
-        filtering_params(params).each do |key, value|
-        @listing = @listing.public_send(key, value) if value.present?
-          end
+    @workshop = Workshop.all
+    # @workshop = Workshop.page(params[:page]).per(4)
+    @workshop = @workshop.price_range(params[:from],params[:to]) if params[:from].present? || params[:to].present?
+    filtering_params(params).each do |key, value|
+    @workshop = @workshop.public_send(key, value) if value.present?
+    end
 
-          respond_to do |format|
-              format.html
-              format.js { render :layout => false }
-              format.json { render json: @listing }
-          end  
+     respond_to do |format|
+      format.html
+      format.js { render :layout => false }
+      format.json { render json: @workshop }
+       end  
   end
 
   private

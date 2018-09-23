@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+	resources :contact
+
 	resources :workshops do
   		resources :bookings
   	end
@@ -20,8 +22,8 @@ Rails.application.routes.draw do
 
 	root 'welcome#index'
 
-	# get 'reservations/:id/payments/new' => "payments#new", as: 'new_payment'
-	# post 'reservations/:id/payments/checkout' => "payments#checkout", as: 'payment_checkout'
+	get 'bookings/:id/braintree/new' => "braintree#new", as: 'braintree_new'
+	post 'bookings/:id/braintree/checkout' => "braintree#checkout", as: 'braintree_checkout'
 
-	# get '/search' => 'workshops#search', as: "search"
+	get '/search' => 'workshops#search', as: "search"
 end

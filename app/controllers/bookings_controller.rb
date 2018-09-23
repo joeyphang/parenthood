@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
 
 		if @booking.save
 
-			redirect_to root_path(@workshop) 
+			redirect_to workshops_path
 			flash[:notice] = "Booking Successful"
 		else
 			redirect_to workshops_path
@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
 
 	def show
 		@booking = Booking.find(params[:id])
-		@workshop = @booking.listing
+		@workshop = @booking.workshop
 		@booking.workshop_id = params[:workshop_id]
 		@booking.user_id = current_user.id
 		
@@ -55,7 +55,7 @@ class BookingsController < ApplicationController
 	private
 	
 	def booking_params
-		params.require(:booking).permit(:title, :date, :price, :total, :user_id, :listing_id)
+		params.require(:booking).permit(:title, :date, :price, :total, :user_id, :workshop_id)
 
 	end
 end

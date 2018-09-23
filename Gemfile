@@ -40,6 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'figaro'
 gem 'omniauth-google-oauth2'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'braintree'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
