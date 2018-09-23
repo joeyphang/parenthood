@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
 	end
 
 	def create
+
 		@booking = Booking.new(booking_params)
 		@workshop = Workshop.find(params[:workshop_id])
 		@booking.workshop_id = params[:workshop_id]

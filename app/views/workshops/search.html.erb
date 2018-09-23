@@ -1,1 +1,13 @@
-<p>Title: <%= @workshop.title %></p>
+<div class="container fluid">
+<h2>Result</h2>
+<% @workshop.order(updated_at: :desc).each do |workshop| %>
+<hr>
+<p>Title: <%= workshop.title %></p>
+<p>Descrp: <%= workshop.description %></p>
+<p>Date: <%= workshop.date %></p>
+<p>Time: <%= workshop.time %></p>
+<p>Category: <%= workshop.category %></p>
+<p>Price: <%= workshop.price %></p>
+
+<% end %>
+</div>
