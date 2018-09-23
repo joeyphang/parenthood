@@ -36,17 +36,9 @@
 
 <p>
   <strong>Total:</strong>
-  <%= @workshop.total %>
+  <%= @workshop.price %>
 </p>
 
-<p>
-  <strong>Avatar:</strong>
-    <% if @workshop.avatar != nil %>
-    <% @workshop.avatar.each do |img| %>
-    <%= image_tag img.url, :class => "img-fluid" %>
-    <% end %>
-  <% end %>
-</p>
 
 	<%= b.submit %>
 

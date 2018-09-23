@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
-<% @workshops.order(:title).each_with_index do |workshop, index| %>
-
 <h1>Workshops</h1>
+
+
 
 <table>
   <thead>
@@ -13,20 +13,20 @@
       <th>Category</th>
       <th>Price</th>
       <th>Total</th>
-      <th>
-        <%if workshop.avatar != nil %>
-          <img class="img-fluid" style="width: auto; height: auto;" src= <%= workshop.avatar[0]%> />
-        <% else %>
+ <!--      <th>
+        <#%if workshop.avatar != nil %>
+          <img class="img-fluid" style="width: auto; height: auto;" src= <#%= workshop.avatar[0]%> />
+        <#% else %>
           <img class="img-fluid" style="width: auto; height: auto;" src= "https://www.nato-pa.int/sites/default/files/default_images/default-image.jpg"/>
-        <% end %> </th>
+        <#% end %> </th>
 
-      <th colspan="3"></th>
-    </tr>
+      <th colspan="3"></th> -->
+    </tr> 
   </thead>
 
   <tbody>
-    <% @workshops.each do |workshop| %>
-      <tr>
+    <% @workshops.order(:title).each_with_index do |workshop, index| %>
+      <tr class="">
         <td><%= workshop.title %></td>
         <td><%= workshop.description %></td>
         <td><%= workshop.date %></td>
@@ -44,9 +44,10 @@
         </td>
         <td><%= link_to 'Show', workshop %></td>
         <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
-        <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <a class="destroy">Delete</a> -->
+        <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: "destroy" %></td>
       </tr>
-    <% end %>
+
   </tbody>
 </table>
 

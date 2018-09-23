@@ -17,10 +17,10 @@ class BookingsController < ApplicationController
 
 		if @booking.save
 
-			redirect_to booking_path(@booking) 
+			redirect_to root_path(@workshop) 
 			flash[:notice] = "Booking Successful"
 		else
-			redirect_to workshop_path(@workshop)
+			redirect_to workshops_path
 			flash[:error] =  "#{@booking.errors.full_messages}"
 		end
 	end

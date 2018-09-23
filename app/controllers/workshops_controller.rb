@@ -1,5 +1,6 @@
 class WorkshopsController < ApplicationController
   before_action :set_workshop, only: [:show, :edit, :update, :destroy]
+  before_action :check_create_rights, only: [:new, :create]
 
   # GET /workshops
   # GET /workshops.json
@@ -55,11 +56,28 @@ class WorkshopsController < ApplicationController
   # DELETE /workshops/1
   # DELETE /workshops/1.json
   def destroy
+    workshop = Workshop.find(params[:id])
     @workshop.destroy
     respond_to do |format|
+      format.js
       format.html { redirect_to workshops_url, notice: 'Workshop was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    @listing = Listing.all
+        @listing = Listing.page(params[:page]).per(4)
+        @listing = @listing.price_range(params[:from],params[:to]) if params[:from].present? || params[:to].present?
+        filtering_params(params).each do |key, value|
+        @listing = @listing.public_send(key, value) if value.present?
+          end
+
+          respond_to do |format|
+              format.html
+              format.js { render :layout => false }
+              format.json { render json: @listing }
+          end  
   end
 
   private
@@ -76,4 +94,12 @@ class WorkshopsController < ApplicationController
     def filtering_params(params)
       params.slice(:title, :description, :date, :time, :category, :price)
     end
+
+    def check_create_rights
+
+    end
 end
+
+
+
+
