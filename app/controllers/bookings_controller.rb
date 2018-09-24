@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
 
 		if @booking.save
 
-			redirect_to workshop_booking_path
+			redirect_to workshop_booking_url(@workshop, @booking)
 			flash[:notice] = "Booking Successful"
 		else
 			redirect_to workshops_path
