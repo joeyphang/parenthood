@@ -1,0 +1,52 @@
+<div class="container" style="margin-top: 20px">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @workshop.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @workshop.description %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @workshop.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @workshop.time %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @workshop.category %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @workshop.price %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @workshop.total %>
+</p>
+
+<p>
+  <strong>Gallery:</strong>
+    <% if @workshop.avatar != nil %>
+    <% @workshop.avatar.each do |img| %>
+    <%= image_tag img.url, :class => "img-fluid" %>
+    <% end %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_workshop_path(@workshop) %> |
+<%= link_to 'Back', workshops_path %> |
+<%= link_to 'Book Slot', new_workshop_booking_path(@workshop, @booking, @current_user) %>
+
+</div>

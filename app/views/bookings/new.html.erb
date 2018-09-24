@@ -1,0 +1,36 @@
+<div class="container">
+    <p id="notice"><%= notice %></p>
+
+<%= form_with model: [@workshop, @booking] do |b| %>
+	<%= b.label :No_pax %> :
+	<%= b.number_field :total %> <br/>
+
+  <div class="field">
+    <%= b.label :Title %> :
+    <%= b.text_field :title, :value => @workshop.title %>
+  </div>
+
+  Description :
+   <%= @workshop.description %>
+
+  <div class="field">
+    <%= b.label :Date %> :
+    <%= b.date_field :date, :value => @workshop.date %>
+  </div>
+
+  <div class="field">
+    <%= b.label :Price %> :
+    <%= b.number_field :price, :value => @workshop.price %>
+  </div>
+
+  <div class="field">
+    <%= b.label :Total %> :
+    <%= b.number_field :total, :value => @workshop.total %>
+  </div>
+
+
+	<%= b.submit %>
+
+	<% end %>
+
+</div>

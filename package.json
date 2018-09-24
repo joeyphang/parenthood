@@ -1,5 +1,13 @@
 {
   "name": "parenthood",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:joeyphang/parenthood.git",
+  "author": "joeyphang <joeyphangx@gmail.com>",
+  "license": "MIT"
 }
