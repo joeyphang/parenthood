@@ -1,5 +1,5 @@
 class WorkshopsController < ApplicationController
-  # skip_before_action :verify_authenticity_token
+
   before_action :set_workshop, only: [:show, :edit, :update, :destroy]
   before_action :check_create_rights, only: [:new, :create]
 
@@ -98,6 +98,7 @@ class WorkshopsController < ApplicationController
     def check_create_rights
 
     end
+
 end
 
 

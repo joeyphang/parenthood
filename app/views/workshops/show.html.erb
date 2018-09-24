@@ -47,6 +47,6 @@
 
 <%= link_to 'Edit', edit_workshop_path(@workshop) %> |
 <%= link_to 'Back', workshops_path %> |
-<%= link_to 'Book Slot', new_workshop_booking_path(@workshop.id,@booking) %>
+<%= link_to 'Book Slot', new_workshop_booking_path(@workshop, @booking, @current_user) %>
 
 </div>

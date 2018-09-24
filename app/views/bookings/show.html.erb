@@ -1,1 +1,14 @@
-<h1>Confirm booking</h1>
+<div class="container">
+	<h1>Confirm booking</h1>
+
+	Booking details <hr>
+	Title: <%= @workshop.title %> <br/>
+	Description: <%= @workshop.description %> <br/>
+	Date: <%= @workshop.date %> <br/>
+	Time: <%= @workshop.time %>
+	
+		<% if !@booking.payment %>
+			<%= button_to "Proceed to payment", braintree_new_path(@booking), method: :get %>
+		<% end %>
+
+</div>

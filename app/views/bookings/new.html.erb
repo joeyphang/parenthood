@@ -1,45 +1,36 @@
+<div class="container">
+    <p id="notice"><%= notice %></p>
+
 <%= form_with model: [@workshop, @booking] do |b| %>
 	<%= b.label :No_pax %> :
 	<%= b.number_field :total %> <br/>
 
-	<p id="notice"><%= notice %></p>
+  <div class="field">
+    <%= b.label :Title %> :
+    <%= b.text_field :title, :value => @workshop.title %>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @workshop.title %>
-</p>
+  Description :
+   <%= @workshop.description %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @workshop.description %>
-</p>
+  <div class="field">
+    <%= b.label :Date %> :
+    <%= b.date_field :date, :value => @workshop.date %>
+  </div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @workshop.date %>
-</p>
+  <div class="field">
+    <%= b.label :Price %> :
+    <%= b.number_field :price, :value => @workshop.price %>
+  </div>
 
-<p>
-  <strong>Time:</strong>
-  <%= @workshop.time %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @workshop.category %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @workshop.price %>
-</p>
-
-<p>
-  <strong>Total:</strong>
-  <%= @workshop.price %>
-</p>
+  <div class="field">
+    <%= b.label :Total %> :
+    <%= b.number_field :total, :value => @workshop.total %>
+  </div>
 
 
 	<%= b.submit %>
 
 	<% end %>
+
+</div>

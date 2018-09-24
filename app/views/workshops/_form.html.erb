@@ -1,15 +1,15 @@
 <div class="container">
-<%= form_with(model: workshop, local: true) do |form| %>
+  <%= form_with(model: workshop, local: true) do |form| %>
   <% if workshop.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(workshop.errors.count, "error") %> prohibited this workshop from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(workshop.errors.count, "error") %> prohibited this workshop from being saved:</h2>
 
-      <ul>
+    <ul>
       <% workshop.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
   <div class="field">
@@ -55,6 +55,6 @@
   <div class="actions">
     <%= form.submit %>
   </div>
-<% end %>
+  <% end %>
 
 </div>

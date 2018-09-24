@@ -7,7 +7,7 @@ class BraintreeController < ApplicationController
 		# passing the price into payment form
 		@workshop = @booking.workshop
 		@price = @booking.workshop.price
-		# @total_price = @price * (@reservations.end_date - @reservations.start_date).to_i
+
 	end
 
   	def checkout

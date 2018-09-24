@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
 	def index
-		@bookings = Booking.all
+		@booking = Booking.all
 	end
 
 	def new
@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
 
 		if @booking.save
 
-			redirect_to workshops_path
+			redirect_to workshop_booking_path
 			flash[:notice] = "Booking Successful"
 		else
 			redirect_to workshops_path
@@ -33,7 +33,6 @@ class BookingsController < ApplicationController
 		@booking.user_id = current_user.id
 		
 		@price = @workshop.price
-		@total_price = @price
 
 	end
 
@@ -57,6 +56,7 @@ class BookingsController < ApplicationController
 	
 	def booking_params
 		params.require(:booking).permit(:title, :date, :price, :total, :user_id, :workshop_id)
-
 	end
+
+
 end
