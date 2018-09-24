@@ -1,4 +1,5 @@
 <div class="container">
+
 	<h1>Confirm booking</h1>
 
 	Booking details <hr>
@@ -6,9 +7,15 @@
 	Description: <%= @workshop.description %> <br/>
 	Date: <%= @workshop.date %> <br/>
 	Time: <%= @workshop.time %>
-	
+
 		<% if !@booking.payment %>
 			<%= button_to "Proceed to payment", braintree_new_path(@booking), method: :get %>
 		<% end %>
 
+    <div id="flash" class="text-center">
+      <% flash.each do |key, value| -%>
+      <div id="flash_<%= key %>"><%= value %></div>
+      <% end %>
+    </div>
+    
 </div>
